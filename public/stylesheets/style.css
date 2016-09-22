@@ -31,6 +31,10 @@ img {
     width: 70%;
 }
 
+.img-container2 {
+    width:240px;
+}
+
 .img-container-small {
   	max-width:480px;
     width: 50%;
