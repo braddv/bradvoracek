@@ -1,0 +1,12 @@
+extends layout
+
+block active
+	- active = 'The Minskys';
+
+append body
+	.container
+	.starter-template
+		h1 The Minskys
+		p.lead
+			| I write about economics for The Minskys.
+			| You can checkout my posts #[a(href="http://www.theminskys.org/author/brad-voracek") here].

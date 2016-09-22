@@ -10,6 +10,7 @@ var about = require('./routes/about');
 var books = require('./routes/books');
 var users = require('./routes/users');
 var meditation = require('./routes/meditation');
+var theminskys = require('./routes/theminskys');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/about', about);
 app.use('/books', books);
 app.use('/users', users);
 app.use('/meditation', meditation);
+app.use('/theminskys', theminskys);
 
 
 // catch 404 and forward to error handler
