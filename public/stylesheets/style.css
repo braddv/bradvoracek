@@ -4,7 +4,17 @@ body {
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
 }
+
+@media (max-width: 768px) {
+  .starter-template {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 img {
   padding-bottom: 10px;
 }
