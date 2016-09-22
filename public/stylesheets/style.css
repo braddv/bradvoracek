@@ -8,3 +8,13 @@ body {
 img {
   padding-bottom: 10px;
 }
+
+.img-container {
+  	max-width:680px;
+    width: 70%;
+}
+
+.img-container-small {
+  	max-width:480px;
+    width: 50%;
+}
