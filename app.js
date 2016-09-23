@@ -12,6 +12,7 @@ var users = require('./routes/users');
 var meditation = require('./routes/meditation');
 var theminskys = require('./routes/theminskys');
 var resources = require('./routes/resources');
+var projects = require('./routes/projects');
 
 var app = express();
 
@@ -34,7 +35,7 @@ app.use('/users', users);
 app.use('/meditation', meditation);
 app.use('/theminskys', theminskys);
 app.use('/resources', resources);
-
+app.use('/projects', projects);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
