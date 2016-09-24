@@ -2,9 +2,14 @@ extends ../node_modules/pug-bootstrap/_bootstrap
 append styles
 	link(rel='stylesheet', href='/stylesheets/style.css')
 block body
-	- var navitems = {'Home': '/', 'About':'/about', 'Meditation': '/meditation', 'Books':'/books', 'The Minskys': '/theminskys', 'Resources':'/resources', 'Projects':'/projects'};
+	- var navitems;
+	- var home = {'Home': '/', 'About':'/about', 'Meditation': '/meditation', 'Books':'/books', 'The Minskys': '/theminskys', 'Resources':'/resources', 'Projects':'/projects'};
+	- var projects = {'Home': '/', 'Projects':'/projects', 'Marble Run': '/projects/marblerun', 'Drones':'/projects/drones'};
+	- var menus = {'Home': home, 'Projects': projects};
+	- var submenu = 'Home';
 	- var active = 'Home';
 	block active
+	- navitems = menus[submenu];
 	+navbar-fixed("Brad Voracek","navbar","inverse")
 		each val, key in navitems
 			if key == active 
