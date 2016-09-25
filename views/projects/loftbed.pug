@@ -1,0 +1,13 @@
+extends ../layout
+
+block active
+	- submenu = 'Projects';
+	- active = 'Loft Bed';
+
+append body
+	.container
+	.starter-template
+		h1 Loft Bed
+		p.lead My family built this lofted bed for my sister's living room in San Francisco. Rent there is rediculous so they had converted it to a bedroom. Gotta make the space you have work! 
+		div(class="mapiframe")
+			iframe(src="https://www.youtube.com/embed/HZi2YbC3Qc4")

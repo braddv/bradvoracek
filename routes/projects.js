@@ -18,4 +18,8 @@ router.get('/garden', function(req, res, next) {
   res.render('projects/garden', { title: 'Brad Voracek' });
 });
 
+router.get('/loftbed', function(req, res, next) {
+  res.render('projects/loftbed', { title: 'Brad Voracek' });
+});
+
 module.exports = router;
