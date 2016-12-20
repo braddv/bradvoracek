@@ -71,7 +71,7 @@ function update(race,gender) {
 		var barWidth = 35;
 		var barSpacing = 70;
 
-		svg.append("text").text("Number of People").attr("y",15).attr("x",80);
+		svg.append("text").text("Number of 25-65 Year Olds").attr("y",15).attr("x",80);
 		svg.append("rect").attr("height", heightEmployed).attr("width",barWidth).attr("x",leftPadding).attr("y",(height-heightEmployed-bottomPadding));
 		svg.append("text").text("Employed").attr("y",height-15);
 		svg.append("text").text(employed).attr("y",height-heightEmployed-bottomPadding-2).attr("x",leftPadding-2);
