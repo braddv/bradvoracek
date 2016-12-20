@@ -22,4 +22,8 @@ router.get('/loftbed', function(req, res, next) {
   res.render('projects/loftbed', { title: 'Brad Voracek' });
 });
 
+router.get('/lancasterlabor', function(req, res, next) {
+  res.render('projects/lancasterlabor', { title: 'Brad Voracek' });
+});
+
 module.exports = router;
