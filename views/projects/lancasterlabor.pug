@@ -1,0 +1,32 @@
+extends ../layout
+
+append scripts
+	script(src="https://d3js.org/d3.v4.min.js")
+	script(src="/javascripts/labor.js")
+
+block active
+	- submenu = 'Projects';
+	- active = 'Lancaster Labor';
+
+append body
+	.container
+	.starter-template
+		h1 Lancaster's Labor Market
+		div.row 
+			div.col-sm-6 Race 
+				br
+				select(id="Race")
+					option(value="Overall") Overall
+					option(value="Hispanic") Hispanic
+					option(value="White") White
+					option(value="Black") Black
+					option(value="Asian") Asian
+			div.col-sm-6 Gender
+				br
+				select(id="Gender")
+					option(value="Overall") Overall
+					option(value="Male") Male
+					option(value="Female") Female
+
+		br
+		svg(class='bar' id='bar')
