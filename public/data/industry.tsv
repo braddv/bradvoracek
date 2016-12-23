@@ -1,0 +1,131 @@
+Category	Industry #	Industry	# ppl	avg wage
+Overall	7860	Elementary & Secondary Schools	4,095	40,111
+Overall	770	Construction	3,658	51,834
+Overall	8190	Hospitals	2,978	53,603
+Overall	9470	Justice, public order, and safety activities	1,997	60,816
+Overall	3580	Aircraft and parts manufacturing	1,672	69,905
+Overall	7070	Real Estate	1,221	39,647
+Overall	8370	Individual and family services	982	34,536
+Overall	8180	Other health care services	964	30,171
+Overall	5580	Miscellaneous retail stores	918	23,048
+Overall	5380	Department stores and discount stores	906	34,234
+Male	770	Construction	3,658	51,834
+Male	3580	Aircraft and parts manufacturing	1,525	67,374
+Male	9470	Justice, public order, and safety activities	1,187	61,733
+Male	3590	Aerospace products and parts manufacturing	817	70,536
+Male	5580	Miscellaneous retail stores	812	20,705
+Male	7860	Elementary and secondary schools	788	52,873
+Male	6380	Couriers and messengers	567	53,751
+Male	9160	Religious organizations	562	51,421
+Male	7680	Investigation and security services	521	22,664
+Male	6290	Services incidental to transportation	518	79,983
+Female	7860	Elementary and secondary schools	3,307	37,070
+Female	8190	Hospitals	2,646	54,649
+Female	7070	Real estate	1,120	40,256
+Female	9470	Justice, public order, and safety activities	810	59,473
+Female	8370	Individual and family services	713	38,238
+Female	5380	Department stores and discount stores	678	25,416
+Female	8180	Other health care services	662	33,668
+Female	6870	Banking and related activities	545	53578
+Female	5390	Miscellaneous general merchandise stores	513	32000
+Female	7870	Colleges, universities, and professional schools, including junior colleges	497	57,768
+Hispanic	770	Construction	1,340	34,725
+Hispanic	7860	Elementary & Secondary Schools	1,046	32,810
+Hispanic	8680	Restaurants and other food services	585	16,784
+Hispanic	7690	Services to buildings and dwellings	534	27,820
+Hispanic	5390	Miscellaneous general merchandise stores	513	32,000
+Hispanic	2370	Plastics product manufacturing	485	36,792
+Hispanic	6670	Broadcasting (except internet)	477	63,836
+Hispanic	9470	Justice, public order, and safety activities	453	63,781
+Hispanic	7070	Real Estate	445	26,790
+Hispanic	8180	Other health care services	441	29,995
+White	770	Construction	2,318	60,231
+White	7860	Elementary & Secondary Schools	1,684	47,607
+White	3,580	Aircraft and parts manufacturing	1,150	68,246
+White	9470	Justice, public order, and safety activities	843	60,062
+White	8190	Hospitals	782	58720
+White	7870	Colleges, universities, and professional schools, including junior colleges	728	61559
+White	7070	Real estate	694	38,465
+White	3590	Aerospace products and parts manufacturing	680	86,147
+White	5380	Department stores and discount stores	653	24,643
+White	6290	Services incidental to transportation	653	71,650
+Black	8190	Hospitals	1,922	49,607
+Black	7860	Elementary and secondary schools	871	36,672
+Black	9470	Justice, public order, and safety activities	701	59,138
+Black	5580	Miscellaneous retail stores	674	17,000
+Black	8370	Individual and family services	559	36,072
+Black	6380	Couriers and messengers	387	61,488
+Black	7680	Investigation and security services	376	26,005
+Black	9160	Religious organizations	362	48,713
+Black	490	Support activities for mining	282	54,000
+Black	8180	Other health care services	245	24,000
+Asian	7860	Elementary and secondary schools	378	22,103
+Asian	8370	Individual and family services	269	24,723
+Asian	8270	Nursing care facilities (skilled nursing facilities)	238	23,331
+Asian	6670	Broadcasting (except internet)	217	35,000
+Asian	8680	Restaurants and other food services	206	11,249
+Asian	7380	Other consumer goods rental	177	30,000
+Asian	5275	Sporting goods, and hobby and toy stores	155	35,000
+Asian	7580	Employment services	150	1,900
+Asian	5070	Pharmacies and drug stores	112	27,000
+Asian	5380	Department stores and discount stores	111	18,000
+Hispanic Male	770	Construction	1,340	34,725
+Hispanic Male	6670	Broadcasting (except internet)	477	63,836
+Hispanic Male	9470	Justice, public order, and safety activities	399	67,000
+Hispanic Male	7770	Landscaping services	376	24,096
+Hispanic Male	8680	Restaurants and other food services	366	14,760
+Hispanic Male	3580	Aircraft and parts manufacturing	283	52,689
+Hispanic Male	6170	Truck transportation	263	36,894
+Hispanic Male	6690	Telecommunications, except wired telecommunications carriers	250	45,524
+Hispanic Male	8780	Car washes	220	24,500
+Hispanic Male	1370	Beverage manufacturing	213	34,000
+Hispanic Female	7860	Elementary & Secondary Schools	840	26,367
+Hispanic Female	5390	Miscellaneous general merchandise stores	513	32,000
+Hispanic Female	7690	Services to buildings and dwellings	394	22,426
+Hispanic Female	8180	Other health care services	384	32,000
+Hispanic Female	7070	Real estate	382	31,126
+Hispanic Female	4380	Drugs, sundries, and chemical and allied products merchant wholesalers	358	34,525
+Hispanic Female	2370	Plastics product manufacturing	272	38,978
+Hispanic Female	5790	Not specified retail trade	266	35,000
+Hispanic Female	8680	Restaurants and other food services	219	20,168
+Hispanic Female	9290	Private households	200	23,975
+White Male	770	Construction	2,318	60,232
+White Male	3580	Aircraft and parts manufacturing	1150	68,246
+White Male	9470	Justice, public order, and safety activities	621	59,934
+White Male	3590	Aerospace products and parts manufacturing	608	69,112
+White Male	7860	Elementary and secondary schools	582	49,579
+White Male	6290	Services incidental to transportation	486	81,495
+White Male	4690	Automotive parts, accessories, and tire stores	313	65,109
+White Male	7870	Colleges, universities, and professional schools, including junior colleges	299	63,435
+White Male	9590	National security and international affairs	246	79,341
+White Male	4870	Building material and supplies dealers	205	60,340
+White Female	7860	Elementary and secondary schools	1,102	46,565
+White Female	8190	Hospitals	782	58,720
+White Female	7070	Real estate	656	36,639
+White Female	6870	Banking and related activities	545	53,578
+White Female	5380	Department stores and discount stores	509	27,195
+White Female	7870	Colleges, universities, and professional schools, including junior colleges	429	60,252
+White Female	7970	Offices of physicians	349	31,424
+White Female	4970	Grocery stores	347	29,769
+White Female	8180	Other health care services	278	35,971
+White Female	2970	Ordnance	244	43,000
+Black Male	5580	Miscellaneous retail stores	674	17,000
+Black Male	6380	Couriers and messengers	387	61,488
+Black Male	7680	Investigation and security services	376	26,005
+Black Male	9160	Religious organizations	362	48,713
+Black Male	490	Support activities for mining	282	54,000
+Black Male	8180	Other health care services	245	24,000
+Black Male	8190	Hospitals	212	46,000
+Black Male	9470	Justice, public order, and safety activities	167	54,000
+Black Male	1880	Paperboard container manufacturing	101	38,100
+Black Male	4970	Grocery stores	101	37,000
+Black Female	8190	Hospitals	1,710	50,054
+Black Female	7860	Elementary and secondary schools	871	36,672
+Black Female	8370	Individual and family services	559	36,072
+Black Female	9470	Justice, public order, and safety activities	534	60,745
+Black Female	9570	Administration of economic programs and space research	210	56,000
+Black Female	8170	Home health care services	198	19,019
+Black Female	9370	Executive offices and legislative bodies	155	45,000
+Black Female	4870	Building material and supplies dealers	141	24,000
+Black Female	6070	Air transportation	90	56,000
+Black Female	6780	Other information services, except libraries and archives, and internet publishing and broadcasting and web search portals	82	54,000
