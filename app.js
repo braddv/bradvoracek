@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var home = require('./routes/home');
 var about = require('./routes/about');
-var about = require('./routes/autobiography');
+var autobiography = require('./routes/autobiography');
 var books = require('./routes/books');
 var users = require('./routes/users');
 var meditation = require('./routes/meditation');
