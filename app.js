@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var home = require('./routes/home');
 var about = require('./routes/about');
+var about = require('./routes/autobiography');
 var books = require('./routes/books');
 var users = require('./routes/users');
 var meditation = require('./routes/meditation');
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', home);
 app.use('/about', about);
+app.use('/autobiography', autobiography);
 app.use('/books', books);
 app.use('/users', users);
 app.use('/meditation', meditation);
