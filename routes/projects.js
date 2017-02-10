@@ -26,4 +26,8 @@ router.get('/lancasterlabor', function(req, res, next) {
   res.render('projects/lancasterlabor', { title: 'Brad Voracek' });
 });
 
+router.get('/azfirst', function(req, res, next) {
+  res.render('projects/azfirst', { title: 'Brad Voracek' });
+});
+
 module.exports = router;

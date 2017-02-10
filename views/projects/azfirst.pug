@@ -1,0 +1,51 @@
+extends ../layout
+
+append scripts
+	script(src="https://d3js.org/d3.v4.min.js")
+	script(src="/javascripts/azfirst.js")
+
+block active
+	- submenu = 'Projects';
+	- active = 'AZ FIRST';
+
+append body
+	.container
+	.starter-template
+		h1 AZ Jobs
+		br
+		svg(class='bar' id='occupation')
+		br
+		div.row 
+			select(id="Jobs")
+				option(value="Management") Management
+				option(value="Operations") Operations
+				option(value="Finance") Finance
+				option(value="Computers") Computers
+				option(value="Engineering") Engineering
+				option(value="Technicians") Technicians
+				option(value="Science") Science
+				option(value="Social") Social
+				option(value="Legal") Legal
+				option(value="Education") Education
+				option(value="Entertainment") Entertainment
+				option(value="Healthcare") Healthcare
+				option(value="Protection") Protection
+				option(value="Food") Food
+				option(value="Maintenance") Maintenance
+				option(value="Care") Care
+				option(value="Sales") Sales
+				option(value="OfficeAdmin") Office Administration
+				option(value="Farming") Farming
+				option(value="Construction") Construction
+				option(value="Extraction") Extraction
+				option(value="Repair") Repair
+				option(value="Production") Production
+				option(value="Transportation") Transportation
+				option(value="Military") Military
+		br
+		h2 AZ FIRST Lego League Participation by Gender
+		svg(class='bar' id='fll')
+		br
+		small Jobs data is from the 2015 ACS via ipums. I use all records with statefip == Arizona. Source code to replicate these findings (or find bugs) can be found on my github here. Data from FLL is from ASU's qualifying tournament survey, self-reported by teams. 
+		br
+		small Steven Ruggles, Katie Genadek, Ronald Goeken, Josiah Grover, and Matthew Sobek. Integrated Public Use Microdata Series: Version 6.0 [Machine-readable database]. Minneapolis: University of Minnesota, 2015.
