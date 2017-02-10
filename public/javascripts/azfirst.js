@@ -79,7 +79,7 @@ function updateOccupation(occupation) {
 		selection = 24;
 	}
 
-	var width = 300,
+	var width = 425,
 	    height = 180;
 
 	var svg = d3.select("#occupation").attr("width",width).attr("height",height);
@@ -95,23 +95,27 @@ function updateOccupation(occupation) {
 		var barSpacing = 70;
 		var numFemales = data[selection]["Female"];
 		var numMales = data[selection]["Male"];
+		var femaleInc = data[selection]["FemaleAvgHrly"];
+		var maleInc = data[selection]["MaleAvgHrly"];
 		var numFemalesInt = parseInt(numFemales.replace(",",""))/800;
 		var numMalesInt = parseInt(numMales.replace(",",""))/800;
 		console.log(numFemalesInt);
 		console.log(numMalesInt);
 
-
-		svg.append("text").text("Number Employed by Gender").attr("y",15).attr("x",60).style("font-weight", "bold");
+		svg.append("text").text("Number Employed by Gender").attr("y",15).attr("x",0).style("font-weight", "bold");
+		svg.append("text").text("Avg Hrly Income").attr("y",15).attr("x",300).style("font-weight", "bold");
 
 		//females
 		svg.append("text").text("Female").attr("y",45).attr("x",0);
 		svg.append("rect").attr("height", barHeight).attr("width",numFemalesInt).attr("x",0).attr("y",50);
 		svg.append("text").text(numFemales).attr("y",85).attr("x",0);
+		svg.append("text").text(femaleInc).attr("y",15).attr("x",300).attr("y",65);
 
 		//males
 		svg.append("text").text("Male").attr("y",45+(barSpacing)).attr("x",0);
 		svg.append("rect").attr("height", barHeight).attr("width",numMalesInt).attr("x",0).attr("y",50+(barSpacing));
 		svg.append("text").text(numMales).attr("y",85+(barSpacing)).attr("x",0);
+		svg.append("text").text(maleInc).attr("y",15).attr("x",300).attr("y",65+(barSpacing));
 
 	});
 };

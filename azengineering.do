@@ -104,5 +104,12 @@ bysort sex: tab production if age >= 18 & age <= 65 [fweight=perwt]
 bysort sex: tab transportation if age >= 18 & age <= 65 [fweight=perwt]
 bysort sex: tab military if age >= 18 & age <= 65 [fweight=perwt]
 
+gen hrlywage = incwage/uhrswork
 
+gen avghrly = inctot/(uhrswork*52)
+
+bysort sex: tabstat hrlywage if age >= 18 & age <= 65 & engineering [fweight=p
+> erwt]
+
+bysort sex: tabstat avghrly if age >= 18 & age <= 65 & management & wkswork2 == 6 [fweight=perwt]
 
