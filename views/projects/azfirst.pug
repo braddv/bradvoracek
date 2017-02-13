@@ -11,17 +11,27 @@ block active
 append body
 	.container
 	.starter-template
-		h1 AZ Jobs
+		h1 Why should Arizona prioritize FIRST?
+		br 
+		h3 We want to prepare our youth for the jobs of the future. 
+		div Within FIRST, computer and engineering skills are learned directly.
+		img.img-container3(src='http://reports.weforum.org/future-of-jobs-2016/wp-content/blogs.dir/96/mp/image-cache/site/5/foj-emploutl-jobfamilies-perc.57fcbc9c18aea1364c639ecdf5c43bdc.png')
+		br
+		h3 FIRST develops in demand skills. 
+		div The top three in demand skills in 2020 will be complex problem solving, critical thinking, and creativity. FIRST requires all three of these skills. Students not only engineer robots, but they are incentivized to build community. This means students in FIRST programs will be prepared for the people skills that are growing in demand as well.
+		img.img-container3(src='http://reports.weforum.org/future-of-jobs-2016/wp-content/blogs.dir/96/mp/image-cache/site/0/foj-topskills.146f5f9b5287ae5393466bc754a9d134.png')
+		br 
+		h3 What are we doing in Arizona today?
+		svg(class='bar' id='overalloccupation')
 		br
 		svg(class='bar' id='occupation')
-		br
 		div.row 
 			select(id="Jobs")
+				option(value="Engineering") Engineering
 				option(value="Management") Management
 				option(value="Operations") Operations
 				option(value="Finance") Finance
 				option(value="Computers") Computers
-				option(value="Engineering") Engineering
 				option(value="Technicians") Technicians
 				option(value="Science") Science
 				option(value="Social") Social
@@ -42,6 +52,10 @@ append body
 				option(value="Production") Production
 				option(value="Transportation") Transportation
 				option(value="Military") Military
+		br
+		h2 How did current workers get to where they are? 
+		br
+		svg(class='bar' id='overalleducation')
 		br
 		h2 AZ FIRST Lego League Participation by Gender
 		svg(class='bar' id='fll')

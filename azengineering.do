@@ -106,7 +106,7 @@ bysort sex: tab military if age >= 18 & age <= 65 [fweight=perwt]
 
 gen hrlywage = incwage/uhrswork
 
-gen avghrly = inctot/(uhrswork*52)
+gen avghrly = incwage/(uhrswork*52)
 
 bysort sex: tabstat hrlywage if age >= 18 & age <= 65 & engineering [fweight=p
 > erwt]
