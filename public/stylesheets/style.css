@@ -52,6 +52,13 @@ img {
     width: 50%;
 }
 
+.d3-tip {
+  width: 200px;
+  padding-left: 5px;
+  background: steelblue;
+  color: white;
+}
+
 div.mapiframe {
   position: relative;
   padding-bottom: 65.25%;

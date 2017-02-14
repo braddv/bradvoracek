@@ -119,7 +119,7 @@ var width = 300,
 
 var svg2 = d3.select("#overalloccupation").attr("width",width).attr("height",height);
 
-var tip = d3.tip().attr('class', 'd3-tip').direction('e').html(function(d) { return d; });
+var tip = d3.tip().attr('class', 'd3-tip').direction('w').offset([0,300]).html(function(d) { return d; });
 
 d3.tsv("/data/overalljobs.tsv", function(data) {
 	var numPeople = 0;
