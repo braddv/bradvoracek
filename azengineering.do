@@ -73,7 +73,7 @@ gen transportation = 0
 replace transportation = 1 if occ2010 >= 9000 & occ2010 <= 9750
 
 gen military = 0 
-replace military = 1 if occ2010 >= 9000 & occ2010 <= 9830
+replace military = 1 if occ2010 >= 9800 & occ2010 <= 9830
 
 gen engineeringfield = 0
 replace engineeringfield = 1 if degfield == 24
@@ -112,4 +112,6 @@ bysort sex: tabstat hrlywage if age >= 18 & age <= 65 & engineering [fweight=p
 > erwt]
 
 bysort sex: tabstat avghrly if age >= 18 & age <= 65 & management & wkswork2 == 6 [fweight=perwt]
+
+bysort educ2 sex: tabstat avghrly if age >= 18  & age <= 65 & operations & wkswork2 == 6 [fweight=perwt], statistics(mean n)
 
