@@ -1,26 +1,26 @@
-Overall	Occupation
-494,874	Office Administration
-396,176	Sales
-301,876	Management
-251,142	Healthcare
-233,456	Food
-199,771	Military
-190,042	Transportation
-179,407	Education
-177,196	Construction
-171,480	Maintenance
-166,095	Production
-132,501	Care
-119,576	Repair
-92,200	Computers
-86,912	Protection
-83,226	Operations 
-68,216	Finance
-60,368	Entertainment
-56,442	Social
-46,493	Engineering
-29,230	Legal
-28,330	Farming
-20,455	Science
-12,194	Technicians
-4,867	Extraction
+Overall	Occupation	Sample Jobs
+494,874	Office Administration	Includes Customer Service Representatives, Secretaries, Misc Clerks, Data Entry Keyers, etc
+396,176	Sales	Includes First-Line Supervisors, Cashiers, Retail Salespersons, Telemarketers, etc
+301,876	Management	Includes Managers of all types, including Financial Managers, Education Administration, etc
+251,142	Healthcare	Includes Registered Nurses, Medical Assistants, Physicians, Dentists, etc
+233,456	Food	Includes Chefs and Cooks, Waiters and Waitresses, Preparation, Dishwashers, etc
+190,042	Transportation	Includes Truck Drivers, Freight Laborers, Ambulance Drivers, Packers, Parking Lot Attendants, etc
+179,407	Education	Includes Teachers, Teacher Assisstants, Librarians, etc
+177,196	Construction	Includes Laborers, Carpenters, Electricians, Plumbers, etc
+171,480	Maintenance	Includes Janitors, Grounds Maintenance, Housekeepers, etc
+166,095	Production	Includes Inspectors, Welders, Fabricators, Machinists, etc
+132,501	Care	Includes Personal Care Aides, Childcare workers, Cosmetologists, Barbers, etc
+119,576	Repair	Includes Automotive Service Technicians, Installation workers, Heating repair, Bus and aircraft mechanics, etc
+92,200	Computers	Includes Computer Scientists, Software Developers, Programmers, etc
+86,912	Protection	Includes Security Guards, Police Officers, Firefighters, etc
+83,226	Operations 	Includes Human Resources, Purchasing Agents, Appraisers, other business operations workers
+68,216	Finance	Includes Accountants, Loan Officers, Tax Advisors, etc
+60,368	Entertainment	Includes Designers, Athletes, Musicians, Artists, Writers, Photographers, etc
+56,442	Social	Includes Social Workers, Counselors, etc
+46,493	Engineering	Includes Electrical, Aerospace, Civil, Mechanical, and other Engineers
+29,230	Legal	Includes Lawyers, judges, paralegals, etc
+28,330	Farming	Includes Agricultural workers, etc
+20,455	Science	Includes Social Scientists, Psychologists, Chemists, Economists, Technicians
+12,194	Technicians	Includes Engineering Technicians and Surveyers
+9,729	Military	Includes Military Personel
+4,867	Extraction	Includes Mining Operators, Earth Drillers, Extraction workers

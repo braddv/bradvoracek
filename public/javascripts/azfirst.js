@@ -1,5 +1,3 @@
-var race = "Overall";
-var gender = "Overall";
 
 function updateOccupation(occupation) {
 	var selection = 4;
@@ -121,20 +119,24 @@ var width = 300,
 
 var svg2 = d3.select("#overalloccupation").attr("width",width).attr("height",height);
 
+var tip = d3.tip().attr('class', 'd3-tip').direction('e').html(function(d) { return d; });
+
 d3.tsv("/data/overalljobs.tsv", function(data) {
 	var numPeople = 0;
 	svg2.append("text").text("Employed Individuals by Occupation").attr("y", 20).style("font-weight", "bold");
+	svg2.call(tip);
 	for (i = 0; i < 25; i++){
 		svg2.append("text").text(data[i]["Occupation"]).attr("y",50+i*65).attr("x",0);
 		numPeople = parseInt(data[i]["Overall"].replace(",",""));
-		svg2.append("rect").attr("height", 20).attr("width",numPeople/1700).attr("x",0).attr("y",55+i*65);
+		svg2.append("rect").datum(data[i]["Sample Jobs"]).attr("height", 20).attr("width",numPeople/1700).attr("x",0).attr("y",55+i*65)
+		.on("mouseover",tip.show)
+		.on("mouseout",tip.hide);
 		svg2.append("text").text(data[i]["Overall"]).attr("y",90+i*65).attr("x",0);
 	}
 });
 width = 300;
 height = 500;
 var svg4 = d3.select("#overalleducation").attr("width",width).attr("height",height);
-var tooltip = svg4.append("text").text("hello").style("visibility", "hidden");
 d3.tsv("/data/overalleducation.tsv", function(data) {
 	var numPeople = 0;
 	var numUnemployed = 0;
