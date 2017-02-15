@@ -135,7 +135,7 @@ d3.tsv("/data/overalljobs.tsv", function(data) {
 	}
 });
 width = 300;
-height = 500;
+height = 460;
 var svg4 = d3.select("#overalleducation").attr("width",width).attr("height",height);
 d3.tsv("/data/overalleducation.tsv", function(data) {
 	var numPeople = 0;
@@ -157,6 +157,22 @@ svg4.append("text").text("Employed").attr("x",25).attr("y",455);
 svg4.append("rect").attr("height", 20).attr("width", 20).attr("x",150).attr("y",440).style("fill","#e6550d");
 svg4.append("text").text("Unemployed").attr("x",175).attr("y",455);
 
+//jobs by education / gender
+width = 300;
+height = 2400;
+var svg5 = d3.select("#degrees").attr("width",width).attr("height",height);
+
+d3.tsv("/data/degrees.tsv", function(data) {
+
+	svg5.append("text").text("Field of Highest College Degree").attr("y", 20).style("font-weight", "bold");
+	for (i = 0; i < 38; i++){
+		svg5.append("text").text(data[i]["Degree Field"]).attr("y",50+i*65).attr("x",0);
+		numPeople = parseInt(data[i]["Sum"].replace(/,/g,""));
+		svg5.append("rect").attr("height", 20).attr("width",numPeople/800).attr("x",0).attr("y",55+i*65);
+		svg5.append("text").text(data[i]["Sum"]).attr("y",90+i*65).attr("x",0);
+	}
+
+});
 
 width = 300;
 height = 180;

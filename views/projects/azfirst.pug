@@ -25,6 +25,9 @@ append body
 		h3 What are we doing in Arizona today?
 		svg(class='bar' id='overalloccupation')
 		br
+		small the sample for this graph is all 18-65 year old workers in Arizona
+		br
+		br
 		svg(class='bar' id='occupation')
 		div.row 
 			select(id="Jobs")
@@ -53,10 +56,15 @@ append body
 				option(value="Production") Production
 				option(value="Transportation") Transportation
 				option(value="Military") Military
+		small to calculate comparable average hourly incomes, the sample for this graph is limited to full time full year 18-65 year old workers
 		br
 		h2 How did current workers get to where they are? 
-		br
 		svg(class='bar' id='overalleducation')
+		br
+		small the sample for this graph is all 18-65 year olds in Arizona
+		br
+		h2 What did those with 4+ years of college study?
+		svg(class='bar' id='degrees')
 		br
 		h2 AZ FIRST Lego League Participation by Gender
 		svg(class='bar' id='fll')
