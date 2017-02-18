@@ -19,11 +19,27 @@ append body
 		br
 		br
 		div.row 
-			div.col-sm-6 Start Date (Inclusive)
+			div.col-sm-6 Start Date
 				br
 				select(id="Start")
-					option(value="1960-01-01") 1960-01-01
-			div.col-sm-6 End Date (Exclusive)
+					//option(value="1960-01-01") 1960-01-01
+					//option(value="1970-01-01") 1970-01-01
+					//option(value="1980-01-01") 1980-01-01
+					//option(value="1990-01-01") 1990-01-01
+					option(value="2000-01-01" selected="selected") 2000-01-01
+					//option(value="2010-01-01") 2010-01-01
+					//option(value="2016-07-01") 2016-07-01	
+			div.col-sm-6 End Date
 				br
 				select(id="End")
-					option(value="1961-07-01") 1961-07-01
+					option(value="2016-07-01") 2016-07-01
+					//option(value="2010-01-01") 2010-01-01
+					//option(value="2000-01-01") 2000-01-01
+					//option(value="1990-01-01") 1990-01-01
+					//option(value="1980-01-01") 1980-01-01
+					//option(value="1970-01-01") 1970-01-01
+					//option(value="1960-01-01") 1960-01-01
+
+
+		br
+		small Thanks to #[a(href='https://econoblog101.wordpress.com/2017/01/03/data-source-for-us-sectoral-balances-links-to-data-and-updated-graph/') Econoblog101] for easy links to pertinent FRED datasets
