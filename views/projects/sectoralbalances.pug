@@ -1,0 +1,29 @@
+extends ../layout
+
+append scripts
+	script(src="https://d3js.org/d3.v4.min.js")
+	script(src="/javascripts/d3-tip.js")
+	script(src="/javascripts/balances.js")
+
+block active
+	- submenu = 'Projects';
+	- active = 'Sectoral Balances';
+
+append body
+	.container
+	.starter-template
+		h1 Balances Balance
+		svg(class='bar' id='balancesintro')
+		br
+		svg(class='bar' id='balances')
+		br
+		br
+		div.row 
+			div.col-sm-6 Start Date (Inclusive)
+				br
+				select(id="Start")
+					option(value="1960-01-01") 1960-01-01
+			div.col-sm-6 End Date (Exclusive)
+				br
+				select(id="End")
+					option(value="1961-07-01") 1961-07-01

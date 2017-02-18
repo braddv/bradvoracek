@@ -30,4 +30,8 @@ router.get('/azfirst', function(req, res, next) {
   res.render('projects/azfirst', { title: 'Brad Voracek' });
 });
 
+router.get('/sectoralbalances', function(req, res, next) {
+  res.render('projects/sectoralbalances', { title: 'Brad Voracek' });
+});
+
 module.exports = router;

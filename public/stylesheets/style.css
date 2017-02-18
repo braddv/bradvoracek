@@ -58,6 +58,12 @@ img {
   background: steelblue;
   color: white;
 }
+.d3-tip2 {
+  width: 50px;
+  padding-left: 5px;
+  background: black;
+  color: white;
+}
 
 div.mapiframe {
   position: relative;
