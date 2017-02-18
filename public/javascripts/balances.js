@@ -6,7 +6,7 @@ var start = "2000-01-01";
 var end = "2016-07-01";
 var startvalue = 0;
 var scale = 0;
-var scale2 = .25;
+var scale2 = .08;
 var numdatapoints = 160;
 var svg = d3.select("#balancesintro").attr("width",width).attr("height",height);
 var svg2 = d3.select("#balances").attr("width",width).attr("height",height);
@@ -59,7 +59,7 @@ function updateGraph(start,end) {
 			var scaledhouse = housesector*scale2;
 			barHeightH = Math.abs(scaledhouse);
 
-			if (i == startvalue+3) {
+			if (i == startvalue+numdatapoints/2) {
 				var maxheight = Math.max(barHeightH,barHeightB,barHeightP)+topSpacing;
 
 				svg.append("text").text("Net lending and borrowing (-), Private: Households and institutions (H)")
