@@ -48,7 +48,7 @@ function updateGraph(start,end) {
 			barHeightG = Math.abs(scaledgov);
 
 			var curaccount = data[i]["currentaccount"];
-			var scaledcur = curaccount*scale2;
+			var scaledcur = curaccount*-scale2;
 			barHeightC = Math.abs(scaledcur);
 
 			var bussector = data[i]["business"];
@@ -77,7 +77,7 @@ function updateGraph(start,end) {
 				svg.append("rect").attr("height", 20).attr("width", 20)
 					.attr("x",width/4-25).attr("y",40);
 
-				svg.append("text").text("Balance on Current Account, NIPA's")
+				svg.append("text").text("Negated (-) Balance on Current Account, NIPA's")
 					.attr("x",width/4).attr("y",75);
 				svg.append("rect").attr("height", 20).attr("width", 20)
 					.attr("x",width/4-25).attr("y",60).style("fill","#31a354");
@@ -117,13 +117,15 @@ function updateGraph(start,end) {
 					.on("mouseout",tip.hide);
 
 				//green bar
-				svg.append("rect").datum(curaccount).attr("height", barHeightC).attr("width",barWidth)
+				svg.append("rect").datum(-1*curaccount).attr("height", barHeightC).attr("width",barWidth)
 					.attr("x",leftSpacing+(barSpacing)*5).attr("y",maxheight-((barHeightC+scaledcur)/2)).style("fill","#31a354")
 					.on("mouseover",tip.show)
 					.on("mouseout",tip.hide);
-				//- sign
+				//+ sign
 				svg.append("rect").attr("height",2).attr("width",20)
 					.attr("x",leftSpacing+(barSpacing)*5+barSpacing/2).attr("y",maxheight).style("fill","#000000");
+				svg.append("rect").attr("height",20).attr("width",2)
+					.attr("x",leftSpacing+(barSpacing)*5+barSpacing/2+9).attr("y",maxheight-9).style("fill","#000000");
 				//red bar
 				svg.append("rect").datum(govsector).attr("height", barHeightG).attr("width",barWidth)
 					.attr("x",leftSpacing+(barSpacing)*6).attr("y",maxheight-((barHeightG+scaledgov)/2)).style("fill","#e6550d")
@@ -136,8 +138,10 @@ function updateGraph(start,end) {
 				svg.append("rect").attr("height",2).attr("width",20)
 					.attr("x",leftSpacing+(barSpacing)*5+barSpacing*3/2).attr("y",maxheight-6).style("fill","#000000");
 				//blue bar
+				svg.append("rect").attr("height",2).attr("width",20)
+					.attr("x",leftSpacing+(barSpacing)*7).attr("y",maxheight).style("fill","#000000");
 				svg.append("rect").datum(privatesector).attr("height", barHeightP).attr("width",barWidth)
-					.attr("x",leftSpacing+(barSpacing)*7).attr("y",maxheight-((barHeightP+scaledpriv)/2))
+					.attr("x",leftSpacing+(barSpacing)*7.5).attr("y",maxheight-((barHeightP+scaledpriv)/2))
 					.on("mouseover",tip.show)
 					.on("mouseout",tip.hide);
 			}
@@ -169,22 +173,18 @@ function updateGraph(start,end) {
 			svg2.append("text").text("0")
 				.attr("x",0).attr("y",height/2+5).style("fill","#000000");
 
+			//government sector
+			var govsector = data[i]["gov"];
+			var scaledgov = govsector*scale;
+			barHeightG = Math.abs(scaledgov);
+
 			//private sector
 			var privatesector = data[i]["private"];
 			var date = data[i]["DATE"];
 			var scaledpriv = privatesector*scale;
 			barHeightP = Math.abs(scaledpriv);
 
-			svg2.append("rect").datum(privatesector).attr("height", barHeightP).attr("width",barWidth2)
-				.attr("x",leftSpacing2+/*barWidth2*2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightP+scaledpriv)/2))
-				.on("mouseover",tip.show)
-				.on("mouseout",tip.hide);
-
 			//government sector
-			var govsector = data[i]["gov"];
-			var scaledgov = govsector*scale;
-			barHeightG = Math.abs(scaledgov);
-
 			svg2.append("rect").datum(govsector).attr("height", barHeightG).attr("width",barWidth2)
 				.attr("x",leftSpacing2+/*barWidth2*3+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightG+scaledgov)/2)).style("fill","#e6550d")
 				.on("mouseover",tip.show)
@@ -192,34 +192,63 @@ function updateGraph(start,end) {
 
 			//current account
 			var curaccount = data[i]["currentaccount"];
-			var scaledcur = curaccount*scale;
+			var scaledcur = curaccount*-scale;
 			barHeightC = Math.abs(scaledcur);
 
-			svg2.append("rect").datum(curaccount).attr("height", barHeightC).attr("width",barWidth2)
+			svg2.append("rect").datum(-1*curaccount).attr("height", barHeightC).attr("width",barWidth2)
 				.attr("x",leftSpacing2+/*barWidth2*4+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightC+scaledcur)/2)).style("fill","#31a354")
 				.on("mouseover",tip.show)
 				.on("mouseout",tip.hide);
 
-			//business
-			var bussector = data[i]["business"];
-			var scaledbus = bussector*scale;
-			barHeightB = Math.abs(scaledbus);
+			if (privatesector > 0) {
+				svg2.append("rect").datum(privatesector).attr("height", barHeightP).attr("width",barWidth2)
+					.attr("x",leftSpacing2+/*barWidth2*2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightP+scaledpriv)/2)-barHeightC)
+					.on("mouseover",tip.show)
+					.on("mouseout",tip.hide);
+			} else {
+				if (govsector < 0) {
+					svg2.append("rect").datum(privatesector).attr("height", barHeightP).attr("width",barWidth2)
+						.attr("x",leftSpacing2+/*barWidth2*2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightP+scaledpriv)/2)+barHeightG)
+						.on("mouseover",tip.show)
+						.on("mouseout",tip.hide);
+				}
+				else {
+					svg2.append("rect").datum(privatesector).attr("height", barHeightP).attr("width",barWidth2)
+						.attr("x",leftSpacing2+/*barWidth2*2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightP+scaledpriv)/2))
+						.on("mouseover",tip.show)
+						.on("mouseout",tip.hide);
+				}
+			}
 
-			svg2.append("rect").datum(bussector).attr("height", barHeightB).attr("width",barWidth2)
-				.attr("x",leftSpacing2+/*barWidth2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightB+scaledbus)/2)).style("fill","#756bb1")
+			//government sector
+			svg2.append("rect").datum(govsector).attr("height", barHeightG).attr("width",barWidth2)
+				.attr("x",leftSpacing2+/*barWidth2*3+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightG+scaledgov)/2)).style("fill","#e6550d")
 				.on("mouseover",tip.show)
 				.on("mouseout",tip.hide);
+			//private sector
 
-			//household
-			var housesector = data[i]["household"];
-			var scaledhouse = housesector*scale;
-			barHeightH = Math.abs(scaledhouse);
 
-			svg2.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
-				.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
-				.attr("y",height/2-((barHeightH+scaledhouse)/2)).style("fill","#636363")
-				.on("mouseover",tip.show)
-				.on("mouseout",tip.hide);
+			// //household
+			// var housesector = data[i]["household"];
+			// var scaledhouse = housesector*scale;
+			// barHeightH = Math.abs(scaledhouse);
+
+			// svg2.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
+			// 	.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
+			// 	.attr("y",height/2-((barHeightH+scaledhouse)/2)).style("fill","#636363")
+			// 	.on("mouseover",tip.show)
+			// 	.on("mouseout",tip.hide);
+
+			// //business
+			// var bussector = data[i]["business"];
+			// var scaledbus = bussector*scale;
+			// barHeightB = Math.abs(scaledbus);
+
+			// svg2.append("rect").datum(bussector).attr("height", barHeightB).attr("width",barWidth2)
+			// 	.attr("x",leftSpacing2+/*barWidth2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightB+scaledbus)/2)).style("fill","#756bb1")
+			// 	.on("mouseover",tip.show)
+			// 	.on("mouseout",tip.hide);
+
 		}
 	});
 };
