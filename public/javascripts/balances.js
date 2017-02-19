@@ -131,7 +131,7 @@ function updateGraph(start,numQuarters) {
 		startvalue = 200;
 		scale = .1;
 		scale2 = .08;
-		numdatapoints = 80;
+		numdatapoints = 40;
 		barWidth2 = 8;
 		barSpacing2 = 9;
 	}
