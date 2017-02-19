@@ -10,6 +10,7 @@ var scale2 = .08;
 var numdatapoints = 160;
 var svg = d3.select("#balancesintro").attr("width",width).attr("height",height);
 var svg2 = d3.select("#balances").attr("width",width).attr("height",height);
+var svg3 = d3.select("#balances2").attr("width",width).attr("height",height);
 
 function updateGraph(start,end) {
 
@@ -148,8 +149,8 @@ function updateGraph(start,end) {
 		}
 	});
 
-	var width = 800,
-	    height = 400;
+	width = 800;
+	height = 400;
 
 	svg2 = d3.select("#balances").attr("width",width).attr("height",height);
 	svg2.selectAll("*").remove();
@@ -167,11 +168,6 @@ function updateGraph(start,end) {
 	d3.csv("/data/balances.csv", function(data) {
 
 		for (i = startvalue; i < startvalue+numdatapoints; i++){
-			//zero line
-			svg2.append("rect").attr("height",2).attr("width",width)
-				.attr("x",leftSpacing2).attr("y",height/2).style("fill","#000000");
-			svg2.append("text").text("0")
-				.attr("x",0).attr("y",height/2+5).style("fill","#000000");
 
 			//government sector
 			var govsector = data[i]["gov"];
@@ -225,35 +221,208 @@ function updateGraph(start,end) {
 				.attr("x",leftSpacing2+/*barWidth2*3+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightG+scaledgov)/2)).style("fill","#e6550d")
 				.on("mouseover",tip.show)
 				.on("mouseout",tip.hide);
-			//private sector
+			if (govsector > 0) {
+				svg2.append("rect").datum(-1*curaccount).attr("height", barHeightC).attr("width",barWidth2)
+					.attr("x",leftSpacing2+/*barWidth2*4+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightC+scaledcur)/2)-barHeightG).style("fill","#31a354")
+					.on("mouseover",tip.show)
+					.on("mouseout",tip.hide);
+			}
 
-
-			// //household
-			// var housesector = data[i]["household"];
-			// var scaledhouse = housesector*scale;
-			// barHeightH = Math.abs(scaledhouse);
-
-			// svg2.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
-			// 	.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
-			// 	.attr("y",height/2-((barHeightH+scaledhouse)/2)).style("fill","#636363")
-			// 	.on("mouseover",tip.show)
-			// 	.on("mouseout",tip.hide);
-
-			// //business
-			// var bussector = data[i]["business"];
-			// var scaledbus = bussector*scale;
-			// barHeightB = Math.abs(scaledbus);
-
-			// svg2.append("rect").datum(bussector).attr("height", barHeightB).attr("width",barWidth2)
-			// 	.attr("x",leftSpacing2+/*barWidth2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightB+scaledbus)/2)).style("fill","#756bb1")
-			// 	.on("mouseover",tip.show)
-			// 	.on("mouseout",tip.hide);
-
+			svg2.append("rect").attr("height",2).attr("width",width)
+			.attr("x",leftSpacing2).attr("y",height/2).style("fill","#000000");
+			svg2.append("text").text("0")
+			.attr("x",0).attr("y",height/2+5).style("fill","#000000");
 		}
+
 	});
+
+	width = 800;
+	height = 400;
+
+	svg3 = d3.select("#balances2").attr("width",width).attr("height",height);
+	svg3.selectAll("*").remove();
+
+	var tip = d3.tip().attr('class', 'd3-tip2').direction('w').offset([0,0]).html(function(d) { return d; });
+	svg3.call(tip);
+
+	//3 yrs = 12 data points = i:0->12
+
+	d3.csv("/data/balances.csv", function(data) {
+
+		for (i = startvalue; i < startvalue+numdatapoints; i++){
+
+			//government sector
+			var govsector = data[i]["gov"];
+			var scaledgov = govsector*scale;
+			barHeightG = Math.abs(scaledgov);
+
+			//private sector
+			var privatesector = data[i]["private"];
+			var date = data[i]["DATE"];
+			var scaledpriv = privatesector*scale;
+			barHeightP = Math.abs(scaledpriv);
+
+			//current account
+			var curaccount = data[i]["currentaccount"];
+			var scaledcur = curaccount*-scale;
+			barHeightC = Math.abs(scaledcur);
+
+			// //private sector
+			// if (privatesector > 0) {
+			// 	svg3.append("rect").datum(privatesector).attr("height", barHeightP).attr("width",barWidth2)
+			// 		.attr("x",leftSpacing2+/*barWidth2*2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightP+scaledpriv)/2)-barHeightC)
+			// 		.on("mouseover",tip.show)
+			// 		.on("mouseout",tip.hide);
+			// } else {
+			// 	if (govsector < 0) {
+			// 		svg3.append("rect").datum(privatesector).attr("height", barHeightP).attr("width",barWidth2)
+			// 			.attr("x",leftSpacing2+/*barWidth2*2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightP+scaledpriv)/2)+barHeightG)
+			// 			.on("mouseover",tip.show)
+			// 			.on("mouseout",tip.hide);
+			// 	}
+			// 	else {
+			// 		svg3.append("rect").datum(privatesector).attr("height", barHeightP).attr("width",barWidth2)
+			// 			.attr("x",leftSpacing2+/*barWidth2*2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightP+scaledpriv)/2))
+			// 			.on("mouseover",tip.show)
+			// 			.on("mouseout",tip.hide);
+			// 	}
+			// }
+
+			//government sector
+			svg3.append("rect").datum(govsector).attr("height", barHeightG).attr("width",barWidth2)
+				.attr("x",leftSpacing2+/*barWidth2*3+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightG+scaledgov)/2)).style("fill","#e6550d")
+				.on("mouseover",tip.show)
+				.on("mouseout",tip.hide);
+
+			//household
+			var housesector = data[i]["household"];
+			var scaledhouse = housesector*scale;
+			barHeightH = Math.abs(scaledhouse);
+
+			//business
+			var bussector = data[i]["business"];
+			var scaledbus = bussector*scale;
+			barHeightB = Math.abs(scaledbus);
+
+
+			if (govsector < 0) {
+
+				svg3.append("rect").datum(-1*curaccount).attr("height", barHeightC).attr("width",barWidth2)
+					.attr("x",leftSpacing2+/*barWidth2*4+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightC+scaledcur)/2)).style("fill","#31a354")
+					.on("mouseover",tip.show)
+					.on("mouseout",tip.hide);
+
+				if (bussector > 0) {
+					svg3.append("rect").datum(bussector).attr("height", barHeightB).attr("width",barWidth2)
+						.attr("x",leftSpacing2+/*barWidth2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightB+scaledbus)/2)-barHeightC).style("fill","#756bb1")
+						.on("mouseover",tip.show)
+						.on("mouseout",tip.hide);
+
+					if (housesector > 0) {
+						svg3.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
+							.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
+							.attr("y",height/2-((barHeightH+scaledhouse)/2)-barHeightC-barHeightB).style("fill","#636363")
+							.on("mouseover",tip.show)
+							.on("mouseout",tip.hide);
+					}
+
+					if (housesector <= 0) {
+						svg3.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
+							.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
+							.attr("y",height/2-((barHeightH+scaledhouse)/2)+barHeightG).style("fill","#636363")
+							.on("mouseover",tip.show)
+							.on("mouseout",tip.hide);
+					}
+				}
+
+				if (bussector <= 0) {
+					svg3.append("rect").datum(bussector).attr("height", barHeightB).attr("width",barWidth2)
+						.attr("x",leftSpacing2+/*barWidth2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightB+scaledbus)/2)+barHeightG).style("fill","#756bb1")
+						.on("mouseover",tip.show)
+						.on("mouseout",tip.hide);
+					if (housesector > 0) {
+						svg3.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
+							.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
+							.attr("y",height/2-((barHeightH+scaledhouse)/2)-barHeightC).style("fill","#636363")
+							.on("mouseover",tip.show)
+							.on("mouseout",tip.hide);
+					}
+					if (housesector <= 0) {
+						svg3.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
+							.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
+							.attr("y",height/2-((barHeightH+scaledhouse)/2)+barHeightG+barHeightB).style("fill","#636363")
+							.on("mouseover",tip.show)
+							.on("mouseout",tip.hide);
+					}
+				}
+			} else {
+
+				svg3.append("rect").datum(-1*curaccount).attr("height", barHeightC).attr("width",barWidth2)
+					.attr("x",leftSpacing2+/*barWidth2*4+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightC+scaledcur)/2)-barHeightG).style("fill","#31a354")
+					.on("mouseover",tip.show)
+					.on("mouseout",tip.hide);
+
+				if (bussector > 0) {
+					svg3.append("rect").datum(bussector).attr("height", barHeightB).attr("width",barWidth2)
+						.attr("x",leftSpacing2+/*barWidth2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightB+scaledbus)/2)-barHeightG-barHeightC).style("fill","#756bb1")
+						.on("mouseover",tip.show)
+						.on("mouseout",tip.hide);
+
+					if (housesector > 0) {
+						svg3.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
+							.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
+							.attr("y",height/2-((barHeightH+scaledhouse)/2)-barHeightC-barHeightB-barHeightG).style("fill","#636363")
+							.on("mouseover",tip.show)
+							.on("mouseout",tip.hide);
+					}
+
+					if (housesector <= 0) {
+						svg3.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
+							.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
+							.attr("y",height/2-((barHeightH+scaledhouse)/2)+barHeightG).style("fill","#636363")
+							.on("mouseover",tip.show)
+							.on("mouseout",tip.hide);
+					}
+				}
+
+				if (bussector <= 0) {
+					svg3.append("rect").datum(bussector).attr("height", barHeightB).attr("width",barWidth2)
+						.attr("x",leftSpacing2+/*barWidth2+*/(barSpacing2)*(i-startvalue)).attr("y",height/2-((barHeightB+scaledbus)/2)).style("fill","#756bb1")
+						.on("mouseover",tip.show)
+						.on("mouseout",tip.hide);
+					if (housesector > 0) {
+						svg3.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
+							.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
+							.attr("y",height/2-((barHeightH+scaledhouse)/2)-barHeightC-barHeightG).style("fill","#636363")
+							.on("mouseover",tip.show)
+							.on("mouseout",tip.hide);
+					}
+					if (housesector <= 0) {
+						svg3.append("rect").datum(housesector).attr("height", barHeightH).attr("width",barWidth2)
+							.attr("x",leftSpacing2+(barSpacing2)*(i-startvalue))
+							.attr("y",height/2-((barHeightH+scaledhouse)/2)+barHeightB).style("fill","#636363")
+							.on("mouseover",tip.show)
+							.on("mouseout",tip.hide);
+					}
+				}
+			}
+
+			svg3.append("rect").attr("height",2).attr("width",width)
+			.attr("x",leftSpacing2).attr("y",height/2).style("fill","#000000");
+			svg3.append("text").text("0")
+			.attr("x",0).attr("y",height/2+5).style("fill","#000000");
+		}
+
+	});
+
+
 };
 
 updateGraph(start,end);
+
+
+
+
 
 d3.select("#Start").on("change", function(e){
 	start = d3.select("#Start").property("value");
