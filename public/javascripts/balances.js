@@ -78,12 +78,12 @@ function updateGraph(start,end) {
 				svg.append("rect").attr("height", 20).attr("width", 20)
 					.attr("x",width/4-25).attr("y",40);
 
-				svg.append("text").text("Negated (-) Balance on Current Account, NIPA's")
+				svg.append("text").text("Negated (-) Balance on Current Account, NIPA's (CA)")
 					.attr("x",width/4).attr("y",75);
 				svg.append("rect").attr("height", 20).attr("width", 20)
 					.attr("x",width/4-25).attr("y",60).style("fill","#31a354");
 
-				svg.append("text").text("Net lending or net borrowing (-), NIPAs: Government")
+				svg.append("text").text("Net lending or net borrowing (-), NIPAs: Government (G)")
 					.attr("x",width/4).attr("y",95);
 				svg.append("rect").attr("height", 20).attr("width", 20)
 					.attr("x",width/4-25).attr("y",80).style("fill","#e6550d");
