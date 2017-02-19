@@ -3,7 +3,7 @@ var width = 800,
     height = 400;
 
 var start = "2000-01-01";
-var end = "2016-07-01";
+var numQuarters = 80;
 var startvalue = 0;
 var scale = 0;
 var scale2 = .08;
@@ -25,24 +25,115 @@ var negativeH = 0;
 var positiveB = 0;
 var negativeB = 0;
 
-function updateGraph(start,end) {
+function updateGraph(start,numQuarters) {
 
-	if (start == "2000-01-01" && end == "2016-07-01") {
-		startvalue = 162;
-		scale = .1;
-		scale2 = .08
-		numdatapoints = 80;
-		barWidth2 = 9;
-		barSpacing2 = 10;
-	}
 
-	if (start == "1960-01-01" && end == "2016-07-01") {
+	if (start == "1960-01-01" && numQuarters == 40) {
 		startvalue = 0;
 		scale = 2;
 		scale2 = 4;
 		numdatapoints = 40;
-		barWidth2 = 18;
-		barSpacing2 = 19;
+		barWidth2 = 16;
+		barSpacing2 = 17;
+	}
+
+	if (start == "1960-01-01" && numQuarters == 80) {
+		startvalue = 0;
+		scale = 1;
+		scale2 = 2;
+		numdatapoints = 80;
+		barWidth2 = 8;
+		barSpacing2 = 9;
+	}
+
+	if (start == "1970-01-01" && numQuarters == 40) {
+		startvalue = 40;
+		scale = .5;
+		scale2 = 1;
+		numdatapoints = 40;
+		barWidth2 = 16;
+		barSpacing2 = 17;
+	}
+
+	if (start == "1970-01-01" && numQuarters == 80) {
+		startvalue = 40;
+		scale = .5;
+		scale2 = 1;
+		numdatapoints = 80;
+		barWidth2 = 8;
+		barSpacing2 = 9;
+	}
+
+	if (start == "1980-01-01" && numQuarters == 40) {
+		startvalue = 80;
+		scale = .4;
+		scale2 = .8;
+		numdatapoints = 40;
+		barWidth2 = 16;
+		barSpacing2 = 17;
+	}
+
+	if (start == "1980-01-01" && numQuarters == 80) {
+		startvalue = 80;
+		scale = .4;
+		scale2 = .8;
+		numdatapoints = 80;
+		barWidth2 = 8;
+		barSpacing2 = 9;
+	}
+
+	if (start == "1990-01-01" && numQuarters == 40) {
+		startvalue = 120;
+		scale = .2;
+		scale2 = .4;
+		numdatapoints = 40;
+		barWidth2 = 16;
+		barSpacing2 = 17;
+	}
+
+	if (start == "1990-01-01" && numQuarters == 80) {
+		startvalue = 120;
+		scale = .1;
+		scale2 = .1;
+		numdatapoints = 80;
+		barWidth2 = 8;
+		barSpacing2 = 9;
+	}
+
+	if (start == "2000-01-01" && numQuarters == 40) {
+		startvalue = 160;
+		scale = .1;
+		scale2 = .08;
+		numdatapoints = 40;
+		barWidth2 = 16;
+		barSpacing2 = 17;
+	}
+
+	if (start == "2000-01-01" && numQuarters == 80) {
+		startvalue = 160;
+		scale = .1;
+		scale2 = .08;
+		numdatapoints = 80;
+		barWidth2 = 8;
+		barSpacing2 = 9;
+	}
+
+	if (start == "2010-01-01" && numQuarters == 40) {
+		startvalue = 200;
+		scale = .1;
+		scale2 = .08;
+		numdatapoints = 40;
+		barWidth2 = 16;
+		barSpacing2 = 17;
+	}
+
+	if (start == "2010-01-01" && numQuarters == 80) {
+		startvalue = 200;
+		scale = .1;
+		scale2 = .08;
+		numdatapoints = 80;
+		barWidth2 = 8;
+		barSpacing2 = 9;
 	}
 
 	var barHeightP = 20;
@@ -86,7 +177,7 @@ function updateGraph(start,end) {
 			barHeightH = Math.abs(scaledhouse);
 
 			if (i == startvalue+numdatapoints/2) {
-				var maxheight = Math.max(barHeightH,barHeightB,barHeightP)+topSpacing;
+				var maxheight = Math.max(barHeightH,barHeightB,barHeightP,barHeightC,barHeightG)+topSpacing; //TODO:Switch to scaled not height
 
 				svg.append("text").text("Net lending and borrowing (-), Private: Households and institutions (H)")
 					.attr("x",width/4).attr("y",15);
@@ -366,14 +457,14 @@ function updateGraph(start,end) {
 
 };
 
-updateGraph(start,end);
+updateGraph(start,numQuarters);
 
 d3.select("#Start").on("change", function(e){
 	start = d3.select("#Start").property("value");
-	updateGraph(start, end);
+	updateGraph(start, numQuarters);
 });
 
-d3.select("#End").on("change", function(e){
-	end = d3.select("#End").property("value");
-	updateGraph(start, end);
+d3.select("#NumQuarters").on("change", function(e){
+	numQuarters = d3.select("#NumQuarters").property("value");
+	updateGraph(start, numQuarters);
 });
