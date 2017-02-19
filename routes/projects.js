@@ -31,7 +31,7 @@ router.get('/azfirst', function(req, res, next) {
 });
 
 router.get('/sectoralbalances', function(req, res, next) {
-  res.render('projects/sectoralbalances', { title: 'Brad Voracek' });
+  res.render('projects/sectoralbalances', { title: 'Sectoral Balances Explorer' });
 });
 
 module.exports = router;
