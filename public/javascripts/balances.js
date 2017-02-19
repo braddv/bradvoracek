@@ -112,7 +112,7 @@ function updateGraph(start,numQuarters) {
 	if (start == "2000-01-01" && numQuarters == 80) {
 		startvalue = 160;
 		scale = .1;
-		scale2 = .08;
+		scale2 = .05;
 		numdatapoints = 80;
 		barWidth2 = 8;
 		barSpacing2 = 9;
@@ -130,7 +130,7 @@ function updateGraph(start,numQuarters) {
 	if (start == "2010-01-01" && numQuarters == 80) {
 		startvalue = 200;
 		scale = .1;
-		scale2 = .08;
+		scale2 = .05;
 		numdatapoints = 40;
 		barWidth2 = 8;
 		barSpacing2 = 9;
