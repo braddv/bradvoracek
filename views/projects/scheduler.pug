@@ -1,0 +1,50 @@
+extends ../layout
+
+block active
+	- submenu = 'Projects';
+	- active = 'Scheduler';
+
+append body
+	.container
+	.starter-template
+		h1 Daycare Scheduler
+		p.lead My mom needed the ability to add/remove daycare kids, and schedule them into her 8 available slots per day of the week. 
+		div.row
+			div.col-sm-2.col-sm-offset-1 Monday
+				table 
+			div.col-sm-2 Tuesday
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+			div.col-sm-2 Wednesday
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+			div.col-sm-2 Thursday
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+			div.col-sm-2 Friday
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot
+				div.slot

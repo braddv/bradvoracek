@@ -83,6 +83,10 @@ div.mapiframe iframe {
   height: 100%;
 }
 
+div#mentormap {
+  height: 500px;
+}
+
 .bar rect {
   fill: steelblue;
 }
