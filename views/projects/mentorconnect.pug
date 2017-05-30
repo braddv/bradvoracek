@@ -6,8 +6,25 @@ append scripts
 	script.
 		app = angular.module('myApp', ['ngMap']);
 		app.controller('myCtrl', ['$scope','$http', 'NgMap', function($scope,$http,NgMap) {
+			function geocode(address) {
+				var geocoder = new google.maps.Geocoder();
+				var def = $.Deferred();
+				geocoder.geocode({ 'address': address }, function (results, status) { // called asynchronously
+					if (status == 'OK') {
+						def.resolve(results);
+					} else {
+						def.reject(status);
+					}
+				});
+				return def.promise();
+			};
+
 			$scope.submit = function() {
-				return $http.post('/projects/mentorconnect/contacts', {name:$scope.name, city:$scope.city, contact:$scope.contact, virtual:$scope.virtual}).then(function successCallback(response) {$scope.refreshMap();}, function errorCallback(response) {});
+				geocode(String($scope.city)).then(function success(response) {
+					return $http.post('/projects/mentorconnect/contacts', {name:$scope.name, city:response[0].geometry.location, contact:$scope.contact, virtual:$scope.virtual}).then(function successCallback(response) {$scope.refreshMap();}, function errorCallback(response) {});
+				}, function error(response) {
+					return response;
+				});
 			};
 
 			$scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCil4faNpZbfPn9DI-fYqJ01qYnvVeN4c";
@@ -18,17 +35,12 @@ append scripts
 				$http.get('/projects/mentorconnect/contacts').then(function successCallback(response) {
 						mentors = response;
 						NgMap.getMap().then(function(map) {
-							var geocoder = new google.maps.Geocoder();
+							
 							for (index in mentors.data) {
-
-								geocoder.geocode({'address': mentors.data[index].city}, function (results, status) {
-									if (status == 'OK') {
-										var marker = new google.maps.Marker({
-											position: results[0].geometry.location,
-											map: map,
-											title: 'Hello World!'
-										});
-									} 
+								var marker = new google.maps.Marker({
+									position: mentors.data[index].city,
+									map: map,
+									title: mentors.data[index].name
 								});
 							}
 						});
