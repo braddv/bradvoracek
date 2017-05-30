@@ -1,7 +1,8 @@
 extends ../layout
 
 append scripts
-	script(src="//rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js")
+	script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js")
+	script(src="https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js")
 	script.
 		app = angular.module('myApp', ['ngMap']);
 		app.controller('myCtrl', ['$scope','$http', 'NgMap', function($scope,$http,NgMap) {
@@ -27,7 +28,7 @@ append scripts
 											map: map,
 											title: 'Hello World!'
 										});
-									}
+									} 
 								});
 							}
 						});
@@ -47,6 +48,7 @@ block active
 	- active = 'Mentor Connection';
 
 append body
+	body(ng-app='myApp')
 	.container
 	.starter-template
 		h1 Mentor Connection
