@@ -457,6 +457,22 @@ function updateGraph(start,numQuarters) {
 
 };
 
+var svg4 = d3.select("#jobsforall").attr("width",width).attr("height",300);
+svg4.append("text").text("Living Wage").attr("y",80).attr("x",15).attr("font-size","60px").style("fill","red");
+svg4.append("text").text("Jobs").attr("y",80+70).attr("x",10+100).attr("font-size","60px");
+svg4.append("text").text("For All").attr("y",80+140).attr("x",10+80).attr("font-size","60px").style("fill","red");;
+
+var svg4 = d3.select("#abolish").attr("width",width).attr("height",height);
+svg4.append("text").text("Abolish").attr("y",80).attr("x",85).attr("font-size","60px");
+svg4.append("text").text("Wage").attr("y",80+70).attr("x",10+100).attr("font-size","60px").style("fill","red");
+svg4.append("text").text("Slavery").attr("y",80+140).attr("x",10+78).attr("font-size","60px");
+
+var svg4 = d3.select("#jg").attr("width",width).attr("height",height);
+svg4.append("text").text("By Fiat, By Decree").attr("y",80).attr("x",0).attr("font-size","60px");
+svg4.append("text").text("We Demand").attr("y",80+70).attr("x",80).attr("font-size","60px");
+svg4.append("text").text("A Job Guarantee!").attr("y",80+140).attr("x",20).attr("font-size","60px");
+
+
 updateGraph(start,numQuarters);
 
 d3.select("#Start").on("change", function(e){
@@ -468,3 +484,8 @@ d3.select("#NumQuarters").on("change", function(e){
 	numQuarters = d3.select("#NumQuarters").property("value");
 	updateGraph(start, numQuarters);
 });
+
+
+
+
+
