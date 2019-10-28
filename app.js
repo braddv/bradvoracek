@@ -13,10 +13,6 @@ var meditation = require('./routes/meditation');
 var theminskys = require('./routes/theminskys');
 var resources = require('./routes/resources');
 var projects = require('./routes/projects');
-var mentorconnect = require('./routes/mentorconnect');
-
-var mongodb = require('mongodb');
-var ObjectID = mongodb.ObjectID;
 
 var app = express();
 
@@ -40,8 +36,6 @@ app.use('/meditation', meditation);
 app.use('/theminskys', theminskys);
 app.use('/resources', resources);
 app.use('/projects', projects);
-app.use('/projects/mentorconnect', mentorconnect);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -75,34 +69,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
-var db;
-
-var dburi;
-
-if(process.env.MONGODB_URI){
-  dburi = process.env.MONGODB_URI;
-}
-else{
-  dburi = 'mongodb://localhost/mydb'
-}
-
-//connect to mongodb
-mongodb.MongoClient.connect(dburi, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
-
-  // Save database object from the callback for reuse.
-  db = database;
-  app.locals.db = db;
-  console.log("Database connection ready");
-  // Initialize the app.
-  /*var server = app.listen(process.env.PORT || 5000, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });*/
-});
 module.exports = app;
 
