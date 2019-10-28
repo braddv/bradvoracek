@@ -24,7 +24,7 @@
     "express": "~4.13.4",
     "jade": "~1.11.0",
     "mongodb": "^2.2.26",
-    "mongoose": "^4.9.8",
+    "mongoose": "^5.7.7",
     "morgan": "~1.7.0",
     "ngmap": "^1.18.4",
     "pug": "^2.0.0-beta6",
