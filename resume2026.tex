@@ -1,0 +1,119 @@
+% Reconstructed from resume2021.pdf and updated for 2026.
+% Compile with: pdflatex resume2026.tex
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[OT1]{fontenc}
+\usepackage[letterpaper,left=0.80in,right=1.00in,top=0.54in,bottom=0.50in]{geometry}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1em}
+
+% Section heading with the thin rule used in the original resume.
+\newcommand{\resumesection}[1]{%
+  \vspace{0.55em}%
+  {\scshape #1}\par
+  \vspace{0.12em}\hrule height 0.4pt
+  \vspace{0.36em}%
+}
+
+% School or employer line. The optional second line is the italic job title.
+\newcommand{\entry}[3]{%
+  \hspace*{0.20in}\textbf{#1} #2\par
+  \if\relax\detokenize{#3}\relax\else
+    \hspace*{0.20in}\textit{#3}\par
+  \fi
+}
+
+% Compact bullets matching the original's generous line width.
+\newenvironment{resumelist}{%
+  \begin{list}{$\bullet$}{%
+    \setlength{\leftmargin}{0.70in}%
+    \setlength{\labelwidth}{0.15in}%
+    \setlength{\labelsep}{0.08in}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\topsep}{0.12em}%
+    \setlength{\partopsep}{0pt}%
+  }%
+}{\end{list}}
+
+\begin{document}
+
+{\centering\hspace*{0.10in}% keep the header centered on the physical page
+  {\Large\scshape Bradley Voracek}\par
+  \vspace{0.06em}
+  (661) 350-0794\par
+  \href{mailto:brad.dv@gmail.com}{brad.dv@gmail.com} $\cdot$
+  \href{https://github.com/braddv}{github.com/braddv}\par
+}
+\vspace{0.10em}
+
+\resumesection{Education}
+
+\hspace*{0.20in}\textbf{BA} $\cdot$ \textbf{University of California at Berkeley}
+$\cdot$ Computer Science, Math $\cdot$ 2013\par
+\hspace*{0.20in}\textbf{MS} $\cdot$ \textbf{Levy Institute at Bard College}
+$\cdot$ Economic Theory and Policy $\cdot$ 2016\par
+
+\vspace{0.30em}
+\noindent\hfill
+\begin{minipage}{0.90\textwidth}
+  \textbf{Technologies} Claude $\cdot$ Codex $\cdot$ C\# $\cdot$ .NET $\cdot$ Python
+  $\cdot$ SQL $\cdot$ Azure\\
+  Kafka $\cdot$ Redis $\cdot$ Snowflake $\cdot$ Azure DevOps $\cdot$ GitHub Actions
+  $\cdot$ Datadog
+\end{minipage}
+\hfill\mbox{}\par
+\vspace{0.10em}
+
+\resumesection{Work Experience}
+
+\entry{Carvana}{(2022-2026)}{Senior Engineer I}
+\begin{resumelist}
+  \item Designed and owned Phantom Delivery Service, an in-memory compute service that
+        modeled the complete vehicle-delivery network to calculate delivery estimates for
+        newly added vehicles
+  \item Achieved 7.5 ms p99 latency at 100 requests per second while performing
+        compute-intensive delivery-time calculations
+  \item Built Kafka pipelines spanning 12 fulfillment-event topics to power near-real-time
+        forecasting and logistics optimization and feed Snowflake analytics
+  \item Improved maintainability across 28 repositories by mentoring peers in clean software
+        design and leading development of shared libraries and reusable components
+  \item Implemented automated Claude pull-request reviews in GitHub Actions, embedding
+        AI-assisted feedback directly in the development workflow
+  \item Led an AI engineering roundtable to evaluate emerging tools and establish team best
+        practices for AI-assisted development
+\end{resumelist}
+
+\vspace{0.58em}
+\entry{Phoenix Coding Academy}{(2018-2022)}{Computer Science Teacher}
+\begin{resumelist}
+  \item Designed and delivered project-based lesson plans for advanced software-development
+        courses
+  \item Taught programming fundamentals, application design, and collaborative problem
+        solving through hands-on projects
+  \item Led the FIRST Robotics program, mentoring students in Python programming, iterative
+        testing, and competition preparation
+\end{resumelist}
+
+\vspace{0.58em}
+\entry{FIRST AmeriCorps VISTA}{(2017-2018)}{}
+
+\vspace{0.58em}
+\entry{Tradeshift}{(June 2013-August 2015)}{Software Engineer}
+\begin{resumelist}
+  \item Developed build scripts to improve infrastructure and app deployments
+  \item Wrote a RESTful API and application for financing invoices on Tradeshift's platform
+  \item Utilized Elasticsearch to improve searching for member companies on the website
+\end{resumelist}
+
+\vspace{0.58em}
+\entry{Politify}{(Summer 2012)}{}
+
+\vspace{1.11em}
+\entry{Cisco Systems}{(Summer 2011)}{}
+
+\end{document}
